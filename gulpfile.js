@@ -104,7 +104,7 @@ gulp.task('watch', ['serve'], () => {
 gulp.task('reload', () => {
     gulp.src('./js/**/*.js')
         .pipe(connect.reload());
-})
+});
 
 // As a developer, I should be able to run the gulp serve command on the command line to build and serve the project
 // using a local web server.
@@ -112,7 +112,7 @@ gulp.task('serve', ['build'], () => {
     connect.server({
         root : 'dist',
         livereload : true,
-        port: 3000,
+        port: 3000
     })
 });
 
@@ -120,12 +120,12 @@ gulp.task('serve', ['build'], () => {
 gulp.task('copy', () => {
     gulp.src('icons/**')
         .pipe(gulp.dest(options.dist + '/icons'))
-})
+});
 
 // As a developer, I should be able to run the gulp build command at the command line to run the clean,
 // scripts, styles, and images tasks with confidence that the clean task completes before the other commands.
-gulp.task('build', () => {
-    return sequence('clean', ['html', 'copy', 'images'])
+gulp.task('build', ['clean'], () => {
+    return sequence('html', 'copy', 'images')
 });
 
 // As a developer, I should be able to run the gulp command at the command line to run the “build” task.
