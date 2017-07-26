@@ -3,9 +3,14 @@
 
 NodeJS - Express, Gulp
 
+`gulp build`
+
 * Minify, concat javascript and css
 * Compile Sass
 * Optimize images
 * Move optimized files to the dist folder
+
+`gulp serve`
+
 * Serve and watch for file changes
-* Establish build and watch workflow with child processes
+
